@@ -93,7 +93,7 @@ export default function Signup() {
                     "Content-type" : "application/json",
                 },
             };
-            const{ data } = await axios.post("/api/user",
+            const{ data } = await axios.post("https://chatting-backend.herokuapp.com/api/user",
             {name, email, password, pic},
             config
             );
