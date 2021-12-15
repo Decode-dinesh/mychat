@@ -40,7 +40,7 @@ export default function Login() {
                 "Content-type" : "application/json",
             },
         };
-        const{ data } = await axios.post("/api/user/login",
+        const{ data } = await axios.post("https://chatting-backend.herokuapp.com/api/user/login",
         { email, password },
         config
         );
