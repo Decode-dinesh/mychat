@@ -26,7 +26,7 @@ export default function Login() {
             toast({
                 title:"please select all fields!",
                 status:"warning",
-                duration: 5000,
+                duration: 3000,
                 isClosable:true,
                 position: "bottom",
             });
@@ -47,7 +47,7 @@ export default function Login() {
         toast({
             title:"login Successful",
             status:"success",
-            duration: 5000,
+            duration: 3000,
             isClosable:true,
             position: "bottom",
         });
@@ -58,7 +58,7 @@ export default function Login() {
         toast({
             title:"Error occured!",
             status:"warning",
-            duration: 5000,
+            duration: 3000,
             isClosable:true,
             position: "bottom",
         });
