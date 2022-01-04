@@ -5,7 +5,6 @@ import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input';
 import React,{ useState } from 'react';
 import axios from 'axios';
-import {useHistory} from 'react-router-dom';
 
 export default function Login() {
 
@@ -15,7 +14,7 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
 
     const toast = useToast();
-    const history = useHistory();
+
 
 
     const handleClick = () => setShow(!show);
@@ -35,6 +34,7 @@ export default function Login() {
     };
     
     try {
+        setLoading(true);
         const config = {
             headers:{
                 "Content-type" : "application/json",
@@ -44,6 +44,7 @@ export default function Login() {
         { email, password },
         config
         );
+
         toast({
             title:"login Successful",
             status:"success",
@@ -51,9 +52,9 @@ export default function Login() {
             isClosable:true,
             position: "bottom",
         });
-        localStorage.setItem('userInfo', JSON.stringify(data))
+        localStorage.setItem('userInfo', JSON.stringify(data));
         setLoading(false);
-        history.push('/chats')
+        window.location.href="/chats";
     } catch (error) {
         toast({
             title:"Error occured!",
@@ -63,9 +64,10 @@ export default function Login() {
             position: "bottom",
         });
         setLoading(false);
-        return;
+        
     }
-}
+};
+
     return (
         <VStack>
              <FormControl id='email' isRequired>
